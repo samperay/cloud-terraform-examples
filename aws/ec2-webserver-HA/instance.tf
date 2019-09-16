@@ -4,17 +4,17 @@ resource "aws_instance" "web" {
   key_name      = "${aws_key_pair.mykey.key_name}"
   count         = 2
 
-  # provisioner "file" {
-  #     source = "scripts/script.sh"
-  #     destination = "/tmp/script.sh"
-  # }
+  provisioner "file" {
+      source = "scripts/script.sh"
+      destination = "/tmp/script.sh"
+  }
 
-  # provisioner "remote-exec" {
-  #   inline = [
-  #     "chmod +x /tmp/script.sh",
-  #     "sudo /tmp/script.sh | tee script-output.log"
-  #   ]
-  # }
+  provisioner "remote-exec" {
+    inline = [
+      "chmod +x /tmp/script.sh",
+      "sudo /tmp/script.sh | tee script-output.log"
+    ]
+  }
 
   connection {
     host = "${self.public_ip}"
