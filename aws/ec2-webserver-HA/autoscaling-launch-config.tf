@@ -4,18 +4,6 @@ resource "aws_launch_configuration" "web-launch" {
   instance_type   = "t2.micro"
   key_name        = "${aws_key_pair.mykey.key_name}"
   security_groups = ["${aws_security_group.web.id}"]
-
-  provisioner "file" {
-      source = "scripts/script.sh"
-      destination = "/tmp/script.sh"
-  }
-
-  provisioner "remote-exec" {
-    inline = [
-      "chmod +x /tmp/script.sh",
-      "sudo /tmp/script.sh | tee script-output.log"
-    ]
-  }
 }
 
 resource "aws_autoscaling_group" "web-autoscaling" {
