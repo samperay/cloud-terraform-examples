@@ -20,7 +20,7 @@ resource "aws_launch_configuration" "web-launch" {
 
 resource "aws_autoscaling_group" "web-autoscaling" {
   name                      = "example-autoscaling"
-  vpc_zone_identifier       = ["${aws_subnet.main-subnet-public-1.id}", "${aws_subnet.main-subnet-2.id}"]
+  vpc_zone_identifier       = ["${aws_subnet.main-subnet-public-1.id}", "${aws_subnet.main-subnet-public-2.id}"]
   launch_configuration      = "${aws_launch_configuration.web-launch.name}"
   min_size                  = 2
   max_size                  = 2
