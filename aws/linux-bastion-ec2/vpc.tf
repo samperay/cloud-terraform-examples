@@ -74,7 +74,7 @@ resource "aws_route_table" "bastion-route-public-1" {
   }
 }
 
-resource "aws_route_table" "bastion-route-public-1" {
+resource "aws_route_table" "bastion-route-public-2" {
   vpc_id = "${aws_vpc.bastion.id}"
 
   route {
@@ -84,12 +84,12 @@ resource "aws_route_table" "bastion-route-public-1" {
 }
 
 // associate subnet to public route table
-resource "aws_route_table_association" "bastion-public-route assoc-1" {
+resource "aws_route_table_association" "bastion-public-route-assoc-1" {
   subnet_id      = "${aws_subnet.bastion-public-1.id}"
   route_table_id = "${aws_route_table.bastion-route-public-1.id}"
 }
 
-resource "aws_route_table_association" "bastion-public-route assoc-2" {
+resource "aws_route_table_association" "bastion-public-route-assoc-2" {
   subnet_id      = "${aws_subnet.bastion-public-2.id}"
   route_table_id = "${aws_route_table.bastion-route-public-2.id}"
 }
