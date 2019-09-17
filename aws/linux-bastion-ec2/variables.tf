@@ -5,21 +5,21 @@ variable "AWS_SECRET_KEY" {
 }
 
 variable "AWS_REGION" {
-    default = "ap-south-1"
+  default = "ap-south-1"
 }
 
 variable "PRIVATE_KEY" {
-    default = "mykey"
+  default = "mykey"
 }
 
 variable "PUBLIC_KEY" {
-    default = "mykey.pub"
+  default = "mykey.pub"
 }
 
 variable "AMIS" {
-    type = "map"
-    default = {
-        ap-south-1 = "ami-0912f71e06545ad88"
-    }
-  
+  type = "map"
+  default = {
+    ap-south-1 = "ami-0912f71e06545ad88"
+  }
+
 }
