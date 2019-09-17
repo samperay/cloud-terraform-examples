@@ -27,7 +27,7 @@ resource "aws_subnet" "bastion-public-2" {
     map_public_ip_on_launch = "false"
 
     tags = {
-        Name = "bastion-public-b"
+        Name = "bastion-public-2"
     }
 }
 
