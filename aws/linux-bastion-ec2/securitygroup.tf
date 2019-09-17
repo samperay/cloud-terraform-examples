@@ -2,7 +2,7 @@
 
 resource "aws_security_group" "bastion-allow-private" {
   vpc_id      = "${aws_vpc.bastion.id}"
-  name        = "bastion-sg"
+  name        = "bastion-sg-private"
   description = "sg for bastion hosts allows only SSH from puprivate subnets"
 
   ingress {
@@ -31,7 +31,7 @@ resource "aws_security_group" "bastion-allow-private" {
 
 resource "aws_security_group" "bastion-allow-public" {
   vpc_id      = "${aws_vpc.bastion.id}"
-  name        = "bastion-sg"
+  name        = "bastion-sg-public"
   description = "sg for bastion hosts allows only SSH from public subnets"
 
   ingress {
