@@ -69,7 +69,7 @@ resource "aws_route_table" "bastion-route-public-1" {
   vpc_id = "${aws_vpc.bastion.id}"
 
   route {
-    cidr_block = "10.0.128.0/20"
+    cidr_block = "10.0.128.0/0"
     gateway_id = "${aws_internet_gateway.bastion-public-igw.id}"
   }
 }
@@ -78,7 +78,7 @@ resource "aws_route_table" "bastion-route-public-2" {
   vpc_id = "${aws_vpc.bastion.id}"
 
   route {
-    cidr_block = "10.0.144.0/20"
+    cidr_block = "10.0.144.0/0"
     gateway_id = "${aws_internet_gateway.bastion-public-igw.id}"
   }
 }
