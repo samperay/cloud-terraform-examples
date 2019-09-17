@@ -70,7 +70,7 @@ resource "aws_route_table" "bastion-route-public-1" {
 
   route {
     cidr_block = "10.0.128.0/20"
-    gateway_id = "${aws_internet_gateway.bastion-public-igw}"
+    gateway_id = "${aws_internet_gateway.bastion-public-igw.id}"
   }
 }
 
@@ -79,7 +79,7 @@ resource "aws_route_table" "bastion-route-public-2" {
 
   route {
     cidr_block = "10.0.144.0/20"
-    gateway_id = "${aws_internet_gateway.bastion-public-igw}"
+    gateway_id = "${aws_internet_gateway.bastion-public-igw.id}"
   }
 }
 
