@@ -13,7 +13,7 @@ resource "aws_subnet" "bastion-public-1" {
     vpc_id = "${aws_vpc.bastion.id}"
     availability_zone = "ap-south-1a"
     cidr_block = "10.0.128.0/20"
-    map_public_ip_on_launch = "false"
+    map_public_ip_on_launch = "true"
 
     tags = {
         Name = "bastion-public-1"
@@ -24,7 +24,7 @@ resource "aws_subnet" "bastion-public-2" {
     vpc_id = "${aws_vpc.bastion.id}"
     availability_zone = "ap-south-1b"
     cidr_block = "10.0.144.0/20"
-    map_public_ip_on_launch = "false"
+    map_public_ip_on_launch = "true"
 
     tags = {
         Name = "bastion-public-2"
