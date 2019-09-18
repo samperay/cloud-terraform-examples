@@ -5,18 +5,20 @@ resource "aws_security_group" "bastion-allow-private" {
   name        = "bastion-sg-private"
   description = "sg for bastion hosts allows only SSH from puprivate subnets"
 
+// allow to SSH from public subnets 
+
   ingress {
     from_port   = 22
     to_port     = 22
     protocol    = "tcp"
-    cidr_blocks = ["${aws_subnet.bastion-private-1.cidr_block}"]
+    cidr_blocks = ["${aws_subnet.bastion-public-1.id}"]
   }
 
   ingress {
     from_port   = 22
     to_port     = 22
     protocol    = "tcp"
-    cidr_blocks = ["${aws_subnet.bastion-private-2.cidr_block}"]
+    cidr_blocks = ["${aws_subnet.bastion-public-2.id}"]
   }
 
   egress {
@@ -38,23 +40,6 @@ resource "aws_security_group" "bastion-allow-public" {
     from_port   = 22
     to_port     = 22
     protocol    = "tcp"
-    cidr_blocks = ["${aws_subnet.bastion-public-1.cidr_block}"]
-
-    // allow public EC2 instance to connect SSH to private instances
-    security_groups = ["${aws_security_group.bastion-allow-private.id}"]
-  }
-
-  ingress {
-    from_port   = 22
-    to_port     = 22
-    protocol    = "tcp"
-    cidr_blocks = ["${aws_subnet.bastion-public-2.cidr_block}"]
-  }
-
-  ingress {
-    from_port   = 22
-    to_port     = 22
-    protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
 
@@ -62,6 +47,6 @@ resource "aws_security_group" "bastion-allow-public" {
     from_port   = 0
     to_port     = 0
     protocol    = "-1"
-    cidr_blocks = ["106.51.234.68/32"]
+    cidr_blocks = ["0.0.0.0/0"]
   }
 }
