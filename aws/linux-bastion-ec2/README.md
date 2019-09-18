@@ -17,7 +17,7 @@ An Amazon EC2 Auto Scaling group with a configurable number of instances.
 A set of Elastic IP addresses that match the number of bastion host instances. If the Auto Scaling group relaunches any instances, these addresses are reassociated with the new instances.
 
 **Architecture Diagram**
-
+![](images/Linux Bastion.png)
 
 **Execute ?**
 create *terraform.tfvars* with your AWS *AWS_ACCESS_KEY= " "* and ** AWS_SECRET_KEY=" "* in this folder
