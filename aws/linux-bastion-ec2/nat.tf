@@ -20,7 +20,7 @@ resource "aws_route_table" "bastion-route-private-gw-1" {
   vpc_id = "${aws_vpc.bastion.id}"
 
   route {
-    cidr_block = "10.0.0.0/0"
+    cidr_block = "0.0.0.0/0"
     gateway_id = "${aws_nat_gateway.natgw.id}"
   }
 
@@ -33,7 +33,7 @@ resource "aws_route_table" "bastion-route-private-gw-2" {
   vpc_id = "${aws_vpc.bastion.id}"
 
   route {
-    cidr_block = "10.0.32.0/0"
+    cidr_block = "0.0.0.0/0"
     gateway_id = "${aws_nat_gateway.natgw.id}"
   }
 
