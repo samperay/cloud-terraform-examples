@@ -11,14 +11,14 @@ resource "aws_security_group" "bastion-allow-private" {
     from_port   = 22
     to_port     = 22
     protocol    = "tcp"
-    cidr_blocks = ["${aws_subnet.bastion-public-1.id}"]
+    cidr_blocks = ["${aws_subnet.bastion-public-1.cidr_block}"]
   }
 
   ingress {
     from_port   = 22
     to_port     = 22
     protocol    = "tcp"
-    cidr_blocks = ["${aws_subnet.bastion-public-2.id}"]
+    cidr_blocks = ["${aws_subnet.bastion-public-2.cidr_block}"]
   }
 
   egress {
