@@ -1,6 +1,5 @@
 resource "aws_security_group" "example-allow-http" {
     name = "example-allow-http"
-    vpc_id = "default"
     description = "allow http port"
 
     ingress {
