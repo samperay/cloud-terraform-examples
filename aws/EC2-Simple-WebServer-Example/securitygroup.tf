@@ -25,4 +25,7 @@ resource "aws_security_group" "example-allow-http" {
         cidr_blocks = ["0.0.0.0/0"]
     }
 
+    tags = {
+        Name = "example-allow-http"
+    }
 }
