@@ -5,6 +5,7 @@ resource "aws_instance" "example" {
     instance_type = "t2.micro"
     key_name = "${aws_key_pair.mykey.key_name}"
     count = 1
+    iam_instance_profile = "${aws_iam_instance_profile.cw-instance-profile.name}"
     user_data = "#!/bin/bash\nsudo yum install -y httpd\nsudo service httpd start\ncd /var/www/html\nsudo chmod 777 /var/www/html\nsudo echo '<html><h1>Hello, Welcome to AWS test Instance</h1></html>' >index.html"
 
     tags = {
