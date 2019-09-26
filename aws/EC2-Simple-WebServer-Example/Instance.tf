@@ -8,6 +8,7 @@ resource "aws_instance" "example" {
     user_data = "#!/bin/bash\nsudo yum install -y httpd\nsudo service httpd start\ncd /var/www/html\nsudo chmod 777 /var/www/html\nsudo echo '<html><h1>Hello, Welcome to AWS test Instance</h1></html>' >index.html"
 
     tags = {
-        Name = "test-example"
+        Name = "example"
+        Team = "Dev"
     }
 }
