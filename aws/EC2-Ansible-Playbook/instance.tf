@@ -29,7 +29,7 @@ resource "aws_instance" "example" {
 terraform {
   backend "s3" {
     bucket = "terraformstate-files"
-    key = "ansible/remote_state"
+    key = "remote_state"
     region = "ap-south-1"
   }
 }
