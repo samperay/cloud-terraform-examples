@@ -1,0 +1,7 @@
+---
+# defaults file for httpd
+web_pkg: httpd
+web_srv: httpd
+indexfile: /var/www/html/index.html
+httpdconf: /etc/httpd/conf/httpd.conf
+

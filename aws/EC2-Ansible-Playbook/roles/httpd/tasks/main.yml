@@ -1,0 +1,30 @@
+---
+# tasks file for httpd
+- name: install httpd
+  yum:
+    name: "{{ web_pkg }}"
+    state: latest
+
+- name: start service
+  service:
+    name: "{{ web_srv }}"
+    state: started
+    enabled: true
+
+- name: copy index.html
+  copy:
+    src: files/index.html
+    dest: "{{ indexfile }}"
+    owner: root
+    group: root
+    mode: 0444
+
+- name: change listening port
+  template:
+    src: templates/httpd.conf.j2
+    dest: "{{ httpdconf }}"
+    owner: root
+    group: root
+    mode: 0666
+  notify:
+    - restart httpd

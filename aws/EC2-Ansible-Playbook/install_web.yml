@@ -1,0 +1,6 @@
+---
+- name: pkg install
+  become: yes
+
+  roles:
+    - httpd
