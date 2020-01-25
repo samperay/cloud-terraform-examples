@@ -35,23 +35,23 @@ update-java-alternatives --set java-1.8.0-openjdk-amd64
 # install jenkins
 apt-get install -y jenkins unzip
 
-# # install pip
-# wget -q https://bootstrap.pypa.io/get-pip.py
-# python3 get-pip.py
-# rm -f get-pip.py
-# # install awscli
-# pip install awscli
+# install pip
+wget -q https://bootstrap.pypa.io/get-pip.py
+python3 get-pip.py
+rm -f get-pip.py
+# install awscli
+pip install awscli
 
-# # install terraform
-# wget -q https://releases.hashicorp.com/terraform/${TERRAFORM_VERSION}/terraform_${TERRAFORM_VERSION}_linux_amd64.zip \
-# && unzip -o terraform_${TERRAFORM_VERSION}_linux_amd64.zip -d /usr/local/bin \
-# && rm terraform_${TERRAFORM_VERSION}_linux_amd64.zip
+# install terraform
+wget -q https://releases.hashicorp.com/terraform/${TERRAFORM_VERSION}/terraform_${TERRAFORM_VERSION}_linux_amd64.zip \
+&& unzip -o terraform_${TERRAFORM_VERSION}_linux_amd64.zip -d /usr/local/bin \
+&& rm terraform_${TERRAFORM_VERSION}_linux_amd64.zip
 
-# # install packer
-# cd /usr/local/bin
-# wget -q https://releases.hashicorp.com/packer/0.10.2/packer_0.10.2_linux_amd64.zip
-# unzip packer_0.10.2_linux_amd64.zip
-# # clean up
-# apt-get clean
-# rm terraform_0.7.7_linux_amd64.zip
-# rm packer_0.10.2_linux_amd64.zip
+# install packer
+cd /usr/local/bin
+wget -q https://releases.hashicorp.com/packer/0.10.2/packer_0.10.2_linux_amd64.zip
+unzip packer_0.10.2_linux_amd64.zip
+# clean up
+apt-get clean
+rm terraform_0.7.7_linux_amd64.zip
+rm packer_0.10.2_linux_amd64.zip
