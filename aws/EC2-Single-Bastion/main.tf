@@ -1,58 +1,27 @@
 provider "aws" {
-  region = "us-east-1"
+  region = "ap-south-1"
 }
 
-// Create EC2 instance
+resource "aws_volume_attachment" "ebs_att" {
+  device_name = "/dev/sdh"
+  volume_id   = "${aws_ebs_volume.example.id}"
+  instance_id = "${aws_instance.web.id}"
+}
 
-resource "aws_instance" "vsure" {
-  ami               = "ami-0affd4508a5d2481b"
+resource "aws_instance" "web" {
+  ami               = "ami-0470e33cd681b2476"
+  availability_zone = "ap-south-1a"
   instance_type     = "t2.micro"
-  count             = 1
-  key_name          = "bo-vsure"
-  security_groups   = ["sg-083534a96a94aa13c"]
-  subnet_id         = "subnet-76877557"
-  availability_zone = "us-east-1d"
-
+  key_name          = "MyLinuxEC2KeyPair"
+  security_groups   = ["sg-0448fa0acdf8474f0"]
+  subnet_id         = "subnet-5a2a5533"
+  
   tags = {
-    Name = "vsure-terraform"
+    Name = "HelloWorld"
   }
 }
 
-# // unable to EIP as limit has crossed
-
-# // create EIP
-# resource "aws_eip" "vsureeip" {
-#   instance = "aws_instance.vsure.id"
-#   vpc      = true
-
-#   tags = {
-#       Name = "vsuretfeip"
-#   }
-# }
-
-# // attach EIP to instance
-
-# resource "aws_eip_association" "vsureeipassoc" {
-#   instance_id   = "aws_instance.vsure.id"
-#   allocation_id = "aws_eip.vsureeip.id"
-# }
-
-// Create EBS Volumes
-
-resource "aws_ebs_volume" "vsurevol" {
-  availability_zone = "us-east-1d"
-  type              = "gp2"
-  size              = 10
-
-  tags = {
-    Name = "vsure-terraform-ebsvol"
-  }
-}
-
-// attach EBS volume to the instance
-resource "aws_volume_attachment" "vsurevolatt" {
-  device_name  = "/dev/sdb"
-  volume_id    = "aws_ebs_volume.vsurevol.id"
-  instance_id  = "aws_instance.vsure.id"
-  skip_destroy = false
+resource "aws_ebs_volume" "example" {
+  availability_zone = "ap-south-1a"
+  size              = 5
 }
