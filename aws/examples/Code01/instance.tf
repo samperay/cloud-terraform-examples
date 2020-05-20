@@ -9,3 +9,6 @@ resource "aws_instance" "webserver" {
   ami = "${lookup(var.amiid, var.aws_region)}"
 }
 
+output "webserver-public-ip" {
+  value = "${aws_instance.webserver.public_ip}"
+}
