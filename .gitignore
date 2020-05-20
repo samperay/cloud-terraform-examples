@@ -8,3 +8,5 @@ aws/*/.terraform
 aws/ec2-software-install/mykey
 aws/ec2-software-install/mykey.pub
 aws/*/mykey*
+lock.json
+terraform-provider-aws*
