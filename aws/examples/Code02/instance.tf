@@ -12,7 +12,6 @@ resource "aws_instance" "webserver" {
   count = "${var.target_env == "dev" ? 0 : 2}"
 
 }
-
 # Ensure you would select target_env = prod while you are applying else terraform would 
 # throw error because of the index issue
 
