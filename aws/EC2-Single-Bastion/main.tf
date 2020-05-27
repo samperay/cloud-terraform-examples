@@ -8,7 +8,7 @@ resource "aws_volume_attachment" "ebs_att" {
   instance_id = "${aws_instance.web.id}"
 }
 
-resource "aws_instance" "web" {
+resource "aws_instance" "bastion" {
   ami               = "ami-0470e33cd681b2476"
   availability_zone = "ap-south-1a"
   instance_type     = "t2.micro"
@@ -17,7 +17,7 @@ resource "aws_instance" "web" {
   subnet_id         = "subnet-5a2a5533"
   
   tags = {
-    Name = "HelloWorld"
+    Name = "bastion"
   }
 }
 
