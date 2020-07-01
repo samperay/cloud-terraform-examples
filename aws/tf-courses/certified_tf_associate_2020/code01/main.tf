@@ -1,12 +1,23 @@
+// create common tags on the resources
+locals {
+  common_tags = {
+    Owner   = "Devops"
+    Service = "Web"
+    BU      = "CloudOps"
+  }
+}
+
 // Create simple ec2 instance in ap-south-1 region
 resource "aws_instance" "myec2" {
   ami           = var.ami_id
   instance_type = var.instancetype
+  tags          = local.common_tags
 }
 
 // create EIP for the instance
 resource "aws_eip" "lb" {
-  vpc = true
+  vpc  = true
+  tags = local.common_tags
 }
 
 // associate EIP to ec2 instance
@@ -18,6 +29,7 @@ resource "aws_eip_association" "eip_assoc" {
 // create s3 bucket
 resource "aws_s3_bucket" "mys3" {
   bucket = "demotest1234-apsouth1-06302020"
+  tags   = local.common_tags
 }
 
 resource "aws_security_group" "allow_tls" {
@@ -28,6 +40,7 @@ resource "aws_security_group" "allow_tls" {
     protocol    = "tcp"
     cidr_blocks = ["${aws_eip.lb.public_ip}/32"]
   }
+  tags = local.common_tags
 }
 
 // if there is nothing defined with the attribute(e.g aws_eip.lb), it would display all the attributes
