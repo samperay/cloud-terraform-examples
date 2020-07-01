@@ -16,15 +16,13 @@ resource "aws_instance" "myec2" {
 
   tags = {
     // count would be incremented by resource
-    Name = var.ec2tags[count.index],
+    Name = var.ec2tags[count.index]
   }
 }
 
 // interpoliation using environment for dev or prod
 // dev is the default so you can just say "terraform plan"
 // prod is to be explicitly said so, "terraform plan -var.environment="prod"
-
-
 
 locals {
   // define locals so that you can use the tags accordingly for the resources
