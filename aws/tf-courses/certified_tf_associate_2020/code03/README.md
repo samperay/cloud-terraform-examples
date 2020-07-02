@@ -8,7 +8,16 @@ code explains more on the functions
 
 ## terraform debugging
 
-default, most verbose mode
+default, most verbose mode are TRACE,  there are other different log levels as well
+
+e.g: 
+
+TRACE
+DEBUG
+INFO
+WARN
+ERROR
+
 ```
 export TF_LOG=TRACE
 ```
