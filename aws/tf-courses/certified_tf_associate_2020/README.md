@@ -1,15 +1,5 @@
 # HashiCorp Certified: Terraform Associative 2020
 
-Few of the examples are written for practice purpose with few more examples..
+This folder contains the information about the terraform associate examples and its related study materials.
 
-# Study Guide - Terraform Associate Certification
-
-- Learn about IaC
-- Manage infrastructure
-- Master the workflow
-- Learn more subcommands
-- Use and create modules
-- Read and write configuration
-- Manage state
-- Debug in Terraform
-- Understand Terraform Cloud and Enterprise
+One could find **study_guide** which contains the TOC and more information on theory and some examples which are more critical to exam.
