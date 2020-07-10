@@ -47,13 +47,13 @@ solaris
 windows
 ```
 **purpose of terraform state**
-Mapping to the Real World: When you have a resource resource "aws_instance" "foo" in your configuration, Terraform uses this map to know that instance i-abcd1234 is represented by that resource
+*Mapping to the Real World*, When you have a resource resource "aws_instance" "foo" in your configuration, Terraform uses this map to know that instance i-abcd1234 is represented by that resource
 
-Metadata: track resource dependencies.
+*Metadata*, track resource dependencies.
 
-Performance: When running a terraform plan, Terraform must know the current state of resources in order to effectively determine the changes that it needs to make to reach your desired configuration
+*Performance*, When running a terraform plan, Terraform must know the current state of resources in order to effectively determine the changes that it needs to make to reach your desired configuration
 
-Syncing: Terraform can use remote locking as a measure to avoid two or more different users accidentally running Terraform at the same time, and thus ensure that each Terraform run begins with the most recent updated state
+*Syncing*, Terraform can use remote locking as a measure to avoid two or more different users accidentally running Terraform at the same time, and thus ensure that each Terraform run begins with the most recent updated state
 
 **terraform settings**
 "required_version" setting can be used to constrain which versions of the Terraform CLI can be used with your configuration
@@ -158,6 +158,7 @@ Postgres
 Remote
 S3
 ```
+Note: Workspaces, managed with the terraform workspace command, isn't the same thing as Terraform Cloud's workspaces. Terraform Cloud workspaces act more like completely separate working directories.
 
 **terraform import**
 Import will find the existing resource from ID and import it into your Terraform state at the given ADDRESS. ADDRESS must be a valid resource address.
@@ -178,6 +179,9 @@ command is used to extract the value of an output variable from the state file.
 **terraform refresh**
 command is used to reconcile the state Terraform knows about (via its state file) with the real-world infrastructure. This can be used to detect any drift from the last-known state, and to update the state file.
 This does not modify infrastructure, but does modify the state file. If the state is changed, this may cause changes to occur during the next plan or apply.
+
+**terraform show**
+The terraform show command is used to provide human-readable output from a state or plan file. This can be used to inspect a plan to ensure that the planned operations are expected, or to inspect the current state as Terraform sees it.
 
 ### Use and create modules
 Terraform Registry makes it simple to find and use modules.(https://registry.terraform.io/)
@@ -243,6 +247,11 @@ export TF_VAR_availability_zone_names='["us-west-1b","us-west-1d"]'
 - Any *.auto.tfvars or *.auto.tfvars.json files, processed in lexical order of their filenames.
 - Any -var and -var-file options on the command line, in the order they are provided. (This includes variables set by a Terraform Cloud workspace.)
 ```
+
+Q) In order to make a Terraform configuration file dynamic and/or reusable, static values should be converted to use what?
+Solution: Input variables serve as parameters for a Terraform module, allowing aspects of the module to be customized without altering the module's own source code, and allowing modules to be shared between different configurations.
+
+
 
 ### Read and write configuration
 **Resources**
@@ -336,6 +345,37 @@ https://www.terraform.io/docs/configuration/types.html
 
 **Built-in-functions**
 https://www.terraform.io/docs/configuration/functions.html
+
+**string**
+chomp
+format
+formatlist
+indent
+join
+lower
+regex
+regexall
+replace
+split
+strrev
+substr
+title
+trim
+trimprefix
+trimsuffix
+trimspace
+upper
+
+**Numberic**
+abs
+ceil
+floor
+log
+max
+min
+parseint
+pow
+signum
 
 ### Manage state
 
