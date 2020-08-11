@@ -1,25 +1,9 @@
-variable "AWS_ACCESS_KEY" {
+variable "instancetype" {
+  type        = string
+  description = "EC2 instance type"
 }
 
-variable "AWS_SECRET_KEY" {
-}
-
-variable "AWS_REGION" {
-  default = "ap-south-1"
-}
-
-variable "PRIVATE_KEY" {
-  default = "mykey"
-}
-
-variable "PUBLIC_KEY" {
-  default = "mykey.pub"
-}
-
-variable "AMIS" {
-  type = "map"
-  default = {
-    ap-south-1 = "ami-0912f71e06545ad88"
-  }
-
+variable "ami_id" {
+  type        = string
+  description = "Image ID of the ec2 instance"
 }
