@@ -1,0 +1,56 @@
+# AWS Security 
+
+This folder consists AWS for security aspects of the existing infrastructure. 
+
+- [ ] Enable CloudTrail logging across all AWS.
+- [ ] Turn on CloudTrail log file validation.
+- [ ] Enable CloudTrail multi-region logging.
+- [ ] Integrate CloudTrail with CloudWatch.
+- [ ] Enable access logging for CloudTrail S3 buckets.
+- [ ] Enable access logging for Elastic Load Balancer (ELB).
+- [ ] Enable Redshift audit logging.
+- [ ] Enable Virtual Private Cloud (VPC) flow logging.
+- [ ] Require multifactor authentication (MFA) to delete CloudTrail buckets.
+- [ ] Turn on multifactor authentication for the “root” account.
+- [ ] Turn on multi-factor authentication for IAM users.
+- [ ] Enable IAM users for multi-mode access.
+- [ ] Attach IAM policies to groups or roles.
+- [ ] Rotate IAM access keys regularly, and standardize on the selected number of days.
+- [ ] Set up a strict password policy.
+- [ ] Set the password expiration period to 90 days and prevent reuseCustomer Visualforce pages with standard headers.
+- [ ] Don’t use expired SSL/TLS certificates.
+- [ ] User HTTPS for CloudFront distributions.
+- [ ] Restrict access to CloudTrail bucket.
+- [ ] Encrypt CloudTrail log files at rest.
+- [ ] Encrypt Elastic Block Store (EBS) database.
+- [ ] Provision access to resources using IAM roles.
+- [ ] Ensure EC2 security groups don’t have large ranges of ports open.
+- [ ] Configure EC2 security groups to restrict inbound access to EC2.
+- [ ] Avoid using root user accounts.
+- [ ] Use secure SSL ciphers when connecting between the client and ELB.
+- [ ] Use secure SSL versions when connecting between client and ELB.
+- [ ] Use a standard naming (tagging) convention for EC2.
+- [ ] Encrypt Amazon’s Relational Database Service (RDS).
+- [ ] Ensure access keys are not being used with root accounts.
+- [ ] Use secure CloudFront SSL versions.
+- [ ] Enable the require_ssl parameter in all Redshift clusters.
+- [ ] Rotate SSH keys periodically.
+- [ ] Minimize the number of discrete security groups.
+- [ ] Reduce number of IAM groups.
+- [ ] Terminate unused access keys.
+- [ ] Disable access for inactive or unused IAM users.
+- [ ] Remove unused IAM access keys.
+- [ ] Delete unused SSH Public Keys.
+- [ ] Restrict access to Amazon Machine Images (AMIs).
+- [ ] Restrict access to EC2 security groups.
+- [ ] Restrict access to RDS instances.
+- [ ] Restrict access to Redshift clusters.
+- [ ] Restrict access to outbound access.
+- [ ] Disallow unrestricted ingress access on uncommon ports.
+- [ ] Restrict access to well-known ports such as CIFS, FTP, ICMP, SMTP, SSH, Remote desktop.
+- [ ] Inventory and categorize all existing custom applications by the types of data stored, compliance requirements and possible threats they face.
+- [ ] Involve IT security throughout the development process.
+- [ ] Grant the fewest privileges as possible for application users.
+- [ ] Enforce a single set of data loss prevention policies across custom applications and all other cloud services.
+- [ ] Encrypt highly sensitive data such as protected health information (PHI) or personally identifiable information (PII).
+
