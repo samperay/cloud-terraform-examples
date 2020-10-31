@@ -43,13 +43,16 @@ resource "aws_elb" "web" {
 }
 
 resource "aws_instance" "web" {
+  
+  /*
   connection {
     type = "ssh"
     user = "ubuntu"
     host = self.public_ip
     private_key = "../base/mykey"
   }
-
+*/
+    
   instance_type = "t2.micro"
 
   # Lookup the correct AMI based on the region
@@ -68,6 +71,7 @@ resource "aws_instance" "web" {
 
   subnet_id = module.base.default_subnet_id
 
+    /*
   provisioner "remote-exec" {
     inline = [
       "sudo apt-get -y update",
@@ -75,4 +79,5 @@ resource "aws_instance" "web" {
       "sudo service nginx start"
     ]
   }
+    */
 }
