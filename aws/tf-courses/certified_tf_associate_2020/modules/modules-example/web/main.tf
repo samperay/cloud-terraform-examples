@@ -47,6 +47,7 @@ resource "aws_instance" "web" {
     type = "ssh"
     user = "ubuntu"
     host = self.public_ip
+    private_key = "../base/mykey"
   }
 
   instance_type = "t2.micro"
