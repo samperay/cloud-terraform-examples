@@ -1,12 +1,8 @@
 ./.gitignore
 *.git
-aws/*/terraform.tfstate
-aws/*/terraform.tfstate.backup
-aws/.terraform
-aws/*/terraform.tfvars
-aws/*/.terraform
-aws/ec2-software-install/mykey
-aws/ec2-software-install/mykey.pub
+terraform.tfstate
+terraform.tfstate.backup
+*.tfvars
 lock.json
 terraform-provider-aws*
 .terraform
