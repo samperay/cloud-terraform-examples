@@ -1,0 +1,24 @@
+pipeline{
+    agent any
+    stages{
+        stage('Git Checkout'){
+            steps{
+                git 'https://github.com/samperay/aws-terraform-examples.git'    
+            }
+        }
+
+        stage('terraform init'){
+            steps{
+                bat label: '', script: 'terraform init'
+            }
+        }
+        
+        stage('terraform plan'){
+            steps{
+                dir('aws\\create_s3_bucket'){
+                bat label: '', script: 'terraform plan'
+                }
+             }
+        }
+    }
+}
