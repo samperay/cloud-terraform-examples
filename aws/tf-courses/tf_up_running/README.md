@@ -12,5 +12,14 @@ Writing infrastructure as a code, by **Yevgeniy Brikman**
     [x] Create outputs
 
   - cluster of servers
-    [x] Create ASG 
+    [x] Creating the terraform pre-requsites.
+    [x] Create launch configurations. 
+    [x] Get details from the VPC which requires for ASG for HA(default).
+    [x] Create autoscaling group that refers to launch configurations. 
+    [x] Create security group for EC2 in the launch configurations.
+    [x] Create Load Balancer.
+    [x] Create security groups for the Load Balancer.
+    [x] Create listeners.
+    [x] Create target groups.
+    [x] Create listener rules.
     
