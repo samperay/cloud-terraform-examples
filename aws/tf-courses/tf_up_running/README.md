@@ -23,3 +23,16 @@ Writing infrastructure as a code, by **Yevgeniy Brikman**
     [x] Create target groups.
     [x] Create listener rules.
     
+- chap04 
+  # Create re-usable infrastructure using terraform modules
+
+  create **module** as the main directory, which means there is no code that runs from there. i.e there are no provider module to be there. **modules/services/webserver-cluster** 
+
+  create another directory **stage** and **prod** and we could create cluster using the above module. no need to re-write again the same code. 
+
+  we created **vars.tf** from the base folder and we can customize the values from the prod or stage environment. 
+
+
+
+
+  
