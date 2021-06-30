@@ -86,3 +86,21 @@ variable "enable_autoscaling" {
   description = "if set true, enable autoscaling"
   type = bool
 }
+
+variable "server_text" {
+  description = "The text the web server should return"
+  default     = "Hello, World"
+  type        = string
+}
+
+variable "db_address" {
+  description = "RDS end point of the AWS"
+  type  = string
+  default = "rdsendpoint.amazonaws.com"
+}
+
+variable "db_port" {
+  description = "DB port"
+  type = number
+  default = 3306
+}

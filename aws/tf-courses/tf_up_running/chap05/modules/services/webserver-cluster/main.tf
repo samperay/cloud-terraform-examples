@@ -8,11 +8,7 @@ resource "aws_launch_configuration" "example" {
   instance_type = var.instance_type
   security_groups = [aws_security_group.example-sg.id]
 
-  user_data = <<-EOF
-          #!/bin/bash
-          echo "Hello World" > index.html
-          nohup busybox httpd -f -p ${var.server_port} &
-          EOF
+  user_data = data.template_file.user_data.rendered
 
   # launch configs are immutable, so if you change anything in the configs, terraform won't be able to delete 
   # older resources as ASG is referring to it. so we will create lifecyclem which creates newer instances 
@@ -20,6 +16,17 @@ resource "aws_launch_configuration" "example" {
 
   lifecycle {
     create_before_destroy = true
+  }
+}
+
+data "template_file" "user_data" {
+  template = file("${path.module}/userdata.sh")
+
+  vars = {
+    server_port = var.server_port
+    db_address  = var.db_address
+    db_port     = var.db_port
+    server_text = var.server_text
   }
 }
 
@@ -47,12 +54,22 @@ data "aws_subnet_ids" "default" {
 
 # create an auto-scaling group
 resource "aws_autoscaling_group" "example" {
+  name = "${var.cluster_name}-${aws_launch_configuration.example.name}"
   launch_configuration = aws_launch_configuration.example.name
   vpc_zone_identifier = data.aws_subnet_ids.default.ids
   target_group_arns = [aws_lb_target_group.asg.arn]
   health_check_type = "ELB"
   min_size = var.min_size
   max_size = var.max_size
+
+  # wait for atlest this many instances to pass health checks before considering ASG deployment complete
+  min_elb_capacity = var.min_size
+
+  # When replacing this ASG, create the replacement first, and only delete the
+  # original after
+  lifecycle {
+    create_before_destroy = true
+  }
 
   tag {
     key = "Name"
@@ -71,8 +88,6 @@ resource "aws_autoscaling_group" "example" {
     }
 
   }
-
-
 }
 
 # create a security group for ALB 

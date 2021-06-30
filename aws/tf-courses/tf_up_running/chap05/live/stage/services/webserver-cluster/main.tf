@@ -10,6 +10,8 @@ module "webserver_cluster" {
   min_size = 2
   max_size = 2
   enable_autoscaling = false
+  server_text = "Hello Sunil, Welcome to new instance v2.."
+  db_address = "appversionV2.amazonaws.com"
 }
 
 resource "aws_security_group_rule" "allow_testing_inbound" {
