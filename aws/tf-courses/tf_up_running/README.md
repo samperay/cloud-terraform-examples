@@ -32,7 +32,10 @@ Writing infrastructure as a code, by **Yevgeniy Brikman**
 
   we created **vars.tf** from the base folder and we can customize the values from the prod or stage environment. 
 
+- chap05 
+  # Terraform tips and tricks
 
-
-
+  - count 
+  - for_each
+  - using expressions
   
