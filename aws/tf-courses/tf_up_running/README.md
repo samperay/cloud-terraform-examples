@@ -38,4 +38,15 @@ Writing infrastructure as a code, by **Yevgeniy Brikman**
   - count 
   - for_each
   - using expressions
+
+- chap06 
+  # production grade terraform 
+
+  - seperate the cluster by writing seperate modules. 
+  - create **examples** folder and test your modules. 
+
+- chap07 
+  # testing the terraform code
+
+  
   
