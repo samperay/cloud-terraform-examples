@@ -10,3 +10,4 @@ mykey.*
 mykey
 *.pem
 *.hcl
+.DS_Store
