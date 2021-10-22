@@ -11,3 +11,5 @@ mykey
 *.pem
 *.hcl
 .DS_Store
+tf_testing
+tf_testing.pub
