@@ -9,5 +9,5 @@ terraform {
 
 # Configure the IBM Provider
 provider "ibm" {
-  region = "us-south"
+  region = var.region
 }
