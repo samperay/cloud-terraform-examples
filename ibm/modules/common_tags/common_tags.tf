@@ -10,8 +10,9 @@ variable "environment" {
   default     = "dev"
 }
 
-variable "resource_tags" {
+variable "common_tags" {
   description = "Tags to set for all resources"
-  type        = map(string)
-  default     = {}
+  type        = list(string)
+  default = ["env=dev",
+  "region=us-south-1"]
 }
