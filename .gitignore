@@ -2,7 +2,6 @@
 *.git
 terraform.tfstate
 terraform.tfstate.backup
-*.tfvars
 lock.json
 terraform-provider-aws*
 .terraform
